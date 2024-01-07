@@ -14,5 +14,5 @@ outputs:
   hash:
     description: 'resource pack hash-code'
 runs:
-  using: 'node16'
-  main: 'dict/index.js'
+  using: node20
+  main: dist/index.js
