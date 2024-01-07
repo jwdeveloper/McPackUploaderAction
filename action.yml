@@ -15,6 +15,4 @@ outputs:
     description: 'resource pack hash-code'
 runs:
   using: 'node12'
-  main: 'index.js'
-  pre: |
-    npm install
+  main: 'dist/index.js'
