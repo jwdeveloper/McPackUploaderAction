@@ -1,5 +1,8 @@
 name: 'Upload MC resource pack'
 description: 'Uploads resource packs to https://mc-packs.net/ and returns download link'
+branding:
+  icon: 'upload-cloud'  # Choose an appropriate icon from GitHub's Octicons
+  color: 'blue'  
 inputs:
   path:
     description: 'Resource pack path'
