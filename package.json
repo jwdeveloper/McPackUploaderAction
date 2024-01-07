@@ -24,6 +24,7 @@
     "node": ">=20"
   },
   "scripts": {
+    "start": "node dist/index.js",
     "bundle": "npm run format:write && npm run package",
     "ci-test": "jest",
     "format:write": "prettier --write **/*.js",
@@ -73,6 +74,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.23.7",
+    "@actions/github": "^6.0.0",
+    "cheerio": "^1.0.0-rc.12",
+    "form-data": "^4.0.0",
+    "install": "^0.13.0",
+    "node-fetch": "^3.3.2",
+    "npm": "^10.2.5",
     "@babel/eslint-parser": "^7.23.3",
     "@babel/preset-env": "^7.23.7",
     "@vercel/ncc": "^0.38.1",
