@@ -8,7 +8,7 @@ inputs:
 outputs:
   url:
     description: 'resource pack download url'
-  hash-code:
+  hash:
     description: 'resource pack hash-code'
 runs:
   using: 'node12'

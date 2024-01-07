@@ -8,28 +8,18 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 async function makeFiles() {
     try {
 
-
-        let input = core.getInput('my-input');
-        if (input === undefined || input === '') {
-            input = "resources/backpack9.zip"
+        let input = core.getInput('path');
+        if (input === undefined || input === '')
+        {
+            core.setFailed("Input path is not defined!");
+            input = "resources/backpack12.zip"
         }
-        const stats = fs.statSync(input);
-        const fileSizeInBytes = stats.size;
-        console.log(input)
-
         const formData = new FormData();
         formData.append('file', fs.createReadStream(input));
 
-        let headers = {
-            "Accept": "*/*",
-            "Accept-Encoding": "gzip, deflate, br",
-            "Connection": "keep-alive",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            "cache-control": "max-age=0",
-        }
 
-        let response = await fetch("https://mc-packs.net/", {method: 'POST', body: formData, headers: headers});
 
+        let response = await fetch("https://mc-packs.net/", {method: 'POST', body: formData});
         let content = await response.text();
 
         const $ = cheerio.load(content);
@@ -37,7 +27,6 @@ async function makeFiles() {
         const textAreaContent =  $(textArea).text()
 
         let values= extractValues(textAreaContent);
-
         let url = values.resourcePack;
         let hashCode = values.resourcePackSha1;
 
