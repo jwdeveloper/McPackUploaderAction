@@ -1,0 +1,15 @@
+name: 'Upload MC resource pack'
+description: 'Uploads resource packs to https://mc-packs.net/ and returns download link'
+inputs:
+  path:
+    description: 'Resource pack path'
+    required: true
+    default: ''
+outputs:
+  url:
+    description: 'resource pack download url'
+  hash-code:
+    description: 'resource pack hash-code'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
